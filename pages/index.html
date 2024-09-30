@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Test App</title>
+    <title>Заметочки</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
+</head>
+<body>
+    <nav>
+        <empty></empty>
+        <div>Заметочки</div>
+        <empty></empty>
+        <empty></empty>
+        <empty></empty>
+        <empty></empty>
+        <empty></empty>
+        <empty></empty>
+        <empty></empty>
+        <create-note tabindex="0" editor="#note-editor">+</create-note>
+    </nav>
 
-    <link rel="stylesheet" href="css/index.css">
-  </head>
-  <body>
-    <div>
-      <h1>Hello World!</h1>
-      <div>We are using Node.js <span id="node-version"></span>,</div>
-      <div>Chromium <span id="chrome-version"></span>,</div>
-      <div>and Electron <span id="electron-version"></span>.</div>
-    </div>
+    <div class="nav-relative"></div>
+    <note-container id="container"></note-container>
+    <note-editor container="#container" id="note-editor"></note-editor>
+</body>
 
-    <script type="module" src="js/client.js"></script>
-  </body>
+<script type="module" src="js/customElements.define.js"></script>
+<script type="module" src="js/init.js"></script>
+
 </html>

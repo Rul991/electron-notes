@@ -1,0 +1,201 @@
+:root {
+    --coffee: #b9834e;
+    --half-coffee: #b9834ea1;
+    --light-pink: #f0decb;
+    --white: #fff;
+    --black: #000;
+    --red: #b02626;
+}
+
+/* tags */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    font-size: 1.25rem;
+    font-family: 'Courier New', Courier, monospace;
+    background: var(--light-pink);
+    overflow-x: hidden;
+}
+
+nav {
+    width: 100%;
+    top: 0;
+    left : 0;
+    position: fixed;
+    display: grid;
+    font-size: 1.4rem;
+    padding: 1rem;
+    background: var(--coffee);
+    color: var(--white);
+    box-shadow: 0 0 10px -2px var(--coffee);
+    grid-template-columns: repeat(10, auto);
+    align-items: center;
+    text-shadow: -1px -1px 1px var(--light-pink);
+    z-index: 1;
+}
+
+input {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+img {
+    padding: 15%;
+    width: 100%;
+}
+
+/* custom elements */
+
+note-element {
+    transition: all 0.25s ease-in-out;
+    display: block;
+    width: 96%;
+    margin: 2%;
+
+    padding: 3rem 1rem;
+    
+    border-radius: 2rem;
+    box-shadow: 0px 0px 10px -7px var(--black);
+    overflow: hidden;
+}
+
+note-element .header {
+    display: block;
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--half-coffee);
+    grid-column: 1/7;
+}
+
+note-element .body {
+    font-size: 0.95rem;
+}
+
+note-element .trash-can {
+    grid-column: 9;
+}
+
+note-container {
+    display: block;
+    width: 100%;
+}
+
+note-editor {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 5% 95%;
+    background: var(--light-pink);
+    z-index: 2;
+}
+
+note-editor input, note-editor textarea {
+    font-size: 1.25rem;
+    background: var(--light-pink);
+    resize: none;
+    width: 100%;
+    height: 100%;
+    color: var(--black);
+    padding: 0.5rem;
+    border: 0;
+    box-shadow: 0 0 10px -6px var(--black);
+}
+
+note-editor input {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+note-editor button {
+    position: absolute;
+    top: calc(95% - 3rem);
+    left: calc(95% - 3rem);
+}
+
+create-note, button {
+    transition: all 0.2s ease-in;
+    display: grid;
+    text-align: center;
+    align-items: center;
+
+    padding: 0.2rem;
+    border-radius: 50%;
+
+    border: 0;
+    color: var(--white);
+
+    background: var(--coffee);
+    box-shadow: 0 0 10px -6px var(--black);
+    width: 3rem;
+    height: 3rem;
+}
+
+/* classes */
+
+/* hovers & focuses */
+
+create-note:hover, create-note:focus, button:hover, button:focus {
+    transform: scale(1.2);
+}
+
+.empty-note-element:hover {
+    transform: scale(1.05);
+}
+
+note-element:hover {
+    box-shadow: 0px 0px 10px -6px var(--black);
+}
+
+.red-background:hover {
+    background-color: var(--red);
+}
+
+/* classes */
+
+.empty-note-element {
+    transition: all 0.25s ease-in-out;
+    display: block;
+    margin: 2rem;
+    padding: 1rem;
+    box-shadow: 0 0 10px -6px var(--black);
+    border-radius: 1rem;
+}
+
+.grid-auto-10 {
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+}
+
+.inverted-image {
+    filter: invert(1);
+}
+
+/* media themes */
+
+@media screen and (prefers-color-scheme: dark) {
+    :root {
+        --black: #fff;
+        --light-pink: rgb(45, 45, 45);
+        --coffee: #000000;
+        --half-coffee: #ffffff;
+    }
+
+    * {
+        color: var(--white);
+    }
+
+    input, textarea {
+        color: var(--white);
+    }
+}
